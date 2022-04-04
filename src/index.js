@@ -1,6 +1,7 @@
 import app from "./app";
 import { Server as WebsocketServer } from 'socket.io';
 import http from 'http';
+import sockets from "./sockets";
 
 import { connectDb } from "./db";
 
@@ -14,3 +15,5 @@ const io = new WebsocketServer(httpServer);
 // http://localhost:3000/socket.io/socket.io.js
 
 console.log("server is runnign on port 3000");
+
+sockets(io);
