@@ -1,3 +1,8 @@
-const socket = io() //si el servidor estuviewra aparte, aqui se colocaria la url pero el ejecticio es localhost todo dentro 
+import { loadNotes } from "./socket.js";
+import { onHandleSubmit } from "./ui.js";
 
-console.log(socket); //es un objeto que contiene metodos
+loadNotes();
+
+const noteForm = document.querySelector("#noteForm")
+
+noteForm.addEventListener("submit", onHandleSubmit);
