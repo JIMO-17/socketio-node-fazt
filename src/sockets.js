@@ -15,7 +15,14 @@ export default (io) => {
             const newNote = new Note(data);
             const savedNote = await newNote.save();
             // console.log(savedNote);
-            socket.emit("server:newnote", savedNote);
+            io.emit("server:newnote", savedNote);
+        })
+
+        socket.on("client:deletenote", async (id) => {
+            await Note.findByIdAndDelete(id);
+            emitNotes();
         })
     })
 }
+
+// socket. es para emitir a una solo cliente que abrio la conexion, pero io. emite la informacion a todos los sockets conectados
