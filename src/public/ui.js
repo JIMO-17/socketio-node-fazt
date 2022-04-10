@@ -10,11 +10,13 @@ let savedId = "";
 const noteUI = (note) => {
     const div = document.createElement("div");
     div.innerHTML = `
-        <div>
-            <h1>${note.title}</h1>
-            <div>
-                <button class="delete" data-id="${note._id}">Delete</button>
-                <button class="update" data-id="${note._id}">Update</button>
+        <div class="card card-body rounded-0 mb-2 animate__animated animate__fadeInUp">
+            <div class="d-flex justify-content-between">
+                <h1>${note.title}</h1>
+                <div>
+                    <button class="btn btn-danger btn-sm delete" data-id="${note._id}">Delete</button>
+                    <button class="btn btn-secondary btn-sm update" data-id="${note._id}">Update</button>
+                </div>
             </div>
             <p>${note.description}</p>
         </div>
